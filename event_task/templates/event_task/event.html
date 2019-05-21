@@ -1,0 +1,12 @@
+{% extends 'dashboard/index.html' %}
+{% block main %}
+   <div class="container" style="margin-top:20px;">
+        <strong>Events</strong><a href="{% url 'add_event' %}" style="margin-left:50px;">[Add new event]</a>
+       {% for x in events %}
+       <div class="card" style="margin-top:10px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);">
+        <div class="card-header"><strong>{{ x.event_name }}</strong><span style="margin-left:40px;"><a href="{% url 'delete_event' x.id %}" style="float:right;margin-left:10px;">delete</a></span><span style="margin-left:40px;"><a href="{% url 'update_event' x.id %}" style="float:right;">edit</a></span></div>
+           <div class="card-body">{{ x.date }}</div>
+       </div>
+       {% endfor %}
+   </div>
+{% endblock %}

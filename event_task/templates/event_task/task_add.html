@@ -1,0 +1,17 @@
+{% extends 'dashboard/index.html' %}
+{% load widget_tweaks %}
+{% block main %}
+    <div class="container" style="font-family: Courier">
+        <form method="post">
+            {% csrf_token %}
+            {% for x in form %}
+            <div class="form-group">
+                <strong style="color: red;">{{ x.errors }}</strong>
+            {{ x.label_tag}}
+            {{ x |attr:'class:form-control'}}
+            </div>
+            {% endfor %}
+            <input type="submit" value="CONFIRM DETAILS"  class="btn btn-success btn-block">
+        </form>
+    </div>
+{% endblock %}

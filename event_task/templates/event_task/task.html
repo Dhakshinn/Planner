@@ -1,0 +1,33 @@
+{% extends 'dashboard/index.html' %}
+{% block main %}
+    <div class="container" style="margin-top:20px;">
+        <strong>Tasks</strong>
+        <div style="text-align:center;"><a href="/event_task/task/{{prev_month}}/{{year}}/"><i class="material-icons">keyboard_arrow_left</i></a><strong>  {{ month_string }} {{ year }}   </strong><a href="/event_task/task/{{next_month}}/{{year}}/"><i class="material-icons">keyboard_arrow_right</i></a></div>
+        <div>
+            <table class="table table-bordered">
+                    <tr>
+                        <th>Date</th>
+                        <th>Tasks</th>
+                    </tr>
+                    {% for x in range %}
+                    <tr>
+                        <td>{{ x }}</td>
+                        <td> 
+                            <a href="/event_task/add_task/{{x}}/{{month}}/{{year}}/" style="float:right;">Add</a>
+                            {% for a in all_tasks %}
+                               {% if a.month == month %}
+                               {% if a.day == x  %}
+                                 {% for task in a.tasks.all %}
+                                 <div>{{ task.name }}</div>
+                                 {% endfor %}
+                                {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                         </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </div>
+    </div>
+
+{% endblock %}

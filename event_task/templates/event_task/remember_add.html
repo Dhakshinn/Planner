@@ -1,0 +1,17 @@
+{% extends 'dashboard/index.html' %}
+{% load widget_tweaks %}
+{% block main %}
+     <div class="container" style="margin-top:50px;">
+          <h4>Add New Remember</h4>
+           <form method="POST">
+               {% csrf_token %}
+               {% for x in form %}
+               {{x.errors}}
+               {{x.label_tag}}
+               {{x|attr:'class:form-control'}}
+               {% endfor %}
+               <br>
+               <input type="submit" class="btn btn-success" value="Add">
+           </form>
+     </div>
+{% endblock %}
