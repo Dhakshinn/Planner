@@ -13,10 +13,11 @@
                     <tr>
                         <td>{{ x }}</td>
                         <td> 
-                            <a href="/event_task/add_task/{{x}}/{{month}}/{{year}}/" style="float:right;">Add</a>
+                                <a href="/event_task/add_task/{{x}}/{{month}}/{{year}}/" style="float:right;margin-left:10px;">add</a>
                             {% for a in all_tasks %}
                                {% if a.month == month %}
                                {% if a.day == x  %}
+                               <a href="{% url 'update_task' a.id  %}" style="float:right;">edit</a>
                                  {% for task in a.tasks.all %}
                                  <div>{{ task.name }}</div>
                                  {% endfor %}

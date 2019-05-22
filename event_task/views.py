@@ -43,6 +43,18 @@ def add_task(request,date_code,month_code,year_code):
         return redirect('dash')
     return render(request,'event_task/task_add.html',{'form':form})
 
+class new_task(CreateView):
+    model=Task
+    template_name='event_task/task_add.html'
+    fields='__all__'
+    success_url=reverse_lazy('dash')
+
+class task_update(UpdateView):
+    model=Day_task
+    template_name='event_task/task_add.html'
+    fields=['tasks']
+    success_url=reverse_lazy('dash')
+
 @login_required
 def document(request):
     document=Document.objects.all()

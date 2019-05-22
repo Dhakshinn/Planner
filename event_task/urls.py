@@ -16,6 +16,8 @@ urlpatterns = [
     url(r'^event/$',views.events,name="event"),
     url(r'^document/$',views.document,name="document"),
     url(r'^task/(?P<month>[0-9]+)/(?P<year>[0-9]+)/$',views.task,name="task"),
+    url(r'^update_task/(?P<pk>[0-9]+)/$',views.task_update.as_view(),name="update_task"),
     url(r'^add_task/(?P<date_code>[0-9]+)/(?P<month_code>[0-9]+)/(?P<year_code>[0-9]+)/$',views.add_task,name="add_task"),
+    url(r'^add_new_task/',views.new_task.as_view(),name="new_task"),
 ]
 

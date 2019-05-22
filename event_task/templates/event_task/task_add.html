@@ -11,6 +11,7 @@
             {{ x |attr:'class:form-control'}}
             </div>
             {% endfor %}
+            <strong><a href="{% url 'new_task' %}">+ Add New Task</a></strong>
             <input type="submit" value="CONFIRM DETAILS"  class="btn btn-success btn-block">
         </form>
     </div>
