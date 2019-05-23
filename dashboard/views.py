@@ -9,7 +9,6 @@ from event_task.models import Day_task,Event
 @login_required
 def dash(request):
     today=datetime.today()
-    print(today.day)
     tasks=Day_task.objects.filter(day=today.day,month=today.month,year=today.year)
     events=Event.objects.filter(date=today)
     return render(request,'dashboard/index.html',{'month':today.month,'year':today.year,'tasks_today':tasks,'events':events})

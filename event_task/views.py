@@ -21,15 +21,17 @@ def remember(request):
 def task(request,month,year):
     month_code=["Nothing","January","Febrary","March","April","May","June","July","August","September","October","November","December"]
     all_tasks=Day_task.objects.all()
+    month=int(month)
     if month==1 or month==3 or month==5 or month==7 or month==8 or month==10 or month==12:
         days=31
+    elif month==2:
+        days=29
     else:
         days=30
     month_string=month_code[int(month)]
-    month=int(month)
     prev_month=month-1
     next_month=month+1
-    return render(request,'event_task/task.html',{'range':range(1,days),'year':year,'month':month,'prev_month':prev_month,'next_month':next_month,'month_string':month_string,'all_tasks':all_tasks})
+    return render(request,'event_task/task.html',{'range':range(1,days+1),'year':year,'month':month,'prev_month':prev_month,'next_month':next_month,'month_string':month_string,'all_tasks':all_tasks})
 
 def add_task(request,date_code,month_code,year_code):
     if request.method=='GET':

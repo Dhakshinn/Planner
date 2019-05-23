@@ -5,7 +5,8 @@
          <div class="card" style="margin-top:10px;">
                  <ul class="list-group list-group-flus">
                                 {% for x in document %}
-                                <li class="list-group-item"><a href="{{x.doc.url}}" target="_blank">{{ x.name }}</a><span ><a href="{% url 'delete_document' x.id %}" style="float:right;margin-left:10px;">delete</a></span><span ><a href="{% url 'update_document' x.id %}" style="float:right;">edit</a></span></li>
+                                <li class="list-group-item">{{x.doc.url}}<a href="{{x.doc.url}}" target="_blank">{{ x.name }}</a><span ><a href="{% url 'delete_document' x.id %}" style="float:right;margin-left:10px;">delete</a></span><span ><a href="{% url 'update_document' x.id %}" style="float:right;">edit</a></span></li>
+                                <img src="/media/media/download.jpg" alt="image">
                                 {% endfor %}
                  </ul>
          </div>
